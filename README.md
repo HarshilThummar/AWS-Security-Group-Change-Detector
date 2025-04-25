@@ -139,4 +139,7 @@ sudo systemctl status sg-monitoring.timer
 systemctl list-timers
 ```
 
-4. Now you can modify the security group and run the script. You will be able to get alert notification in the Slack channel. 
+4. Now you can modify the security group and run the script. You will be able to get alert notification in the Slack channel.
+```bash
+python3 sg-monitoring.py
+```

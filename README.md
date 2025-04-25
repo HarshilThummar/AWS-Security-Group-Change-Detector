@@ -25,8 +25,6 @@ This project is designed to monitor AWS Security Group changes and send Slack al
 
 CloudTrail is required for tracking security group changes such as `AuthorizeSecurityGroupIngress`, `RevokeSecurityGroupEgress`, etc.
 
----
-
 ### 2. Prepare the EC2 Instance
 1. Launch an Ubuntu EC2 instance (or any Linux-based instance).
 2. Ensure the instance has internet access (for Slack webhook).

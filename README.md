@@ -27,7 +27,21 @@ CloudTrail is required for tracking security group changes such as `AuthorizeSec
 
 ---
 
-### 2. Create IAM Role
+### 2. Prepare the EC2 Instance
+1. Launch an Ubuntu EC2 instance (or any Linux-based instance).
+2. Ensure the instance has internet access (for Slack webhook).
+3. Update system packages:
+```bash
+sudo apt update && sudo apt install -y python3-pip
+```
+4. Install Python libraries from requirements.txt:
+```bash
+pip install -r requirements.txt
+```
+5. Also, do not forget to create your AWS profile using access key and secret key in your server.
+6. Python boto3 library will automatically detect the profile to scan the aws account based on the configured profile.
+
+### 3. Create IAM Role
 
 1. Go to **IAM > Roles**.
 2. Click **Create Role**.
@@ -52,18 +66,6 @@ CloudTrail is required for tracking security group changes such as `AuthorizeSec
 
 5. Name the role: SecurityGroupMonitorRole.
 6. Attach this role to your EC2 instance.
-
-### 3. Prepare the EC2 Instance
-1. Launch an Ubuntu EC2 instance (or any Linux-based instance).
-2. Ensure the instance has internet access (for Slack webhook).
-3. Update system packages:
-```bash
-sudo apt update && sudo apt install -y python3-pip
-```
-4. Install Python libraries from requirements.txt:
-```bash
-pip install -r requirements.txt
-```
 
 ### 4. Create the Python Script
 1. Create the script 'sg-monitoring.py' that checks for security group changes using CloudTrail logs and sends Slack alerts.
